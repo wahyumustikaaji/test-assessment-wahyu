@@ -3,8 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -69,8 +68,6 @@ export function SignUpModal({ open, onOpenChange }: SignUpModalProps) {
     },
   });
 
-  const router = useRouter();
-
   function onSignUpSubmit(data: z.infer<typeof signUpSchema>) {
     console.log("Sign up data:", data);
 
@@ -82,7 +79,7 @@ export function SignUpModal({ open, onOpenChange }: SignUpModalProps) {
     setTimeout(() => {
       setAlertMessage(null);
       setAlertType("default");
-    }, 3000); // 3000 ms = 3 detik
+    }, 3000);
   }
 
   return (
